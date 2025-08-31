@@ -1,0 +1,41 @@
+const primaryColor = '#f4511e';
+const secondaryColor = '#69dc46ff';
+
+export const Colors = {
+  light: {
+    primary: primaryColor,
+    secondary: secondaryColor,
+    black: '#000',
+    white: '#fff',
+    transparent: 'transparent',
+    error: '#ff3b30',
+    warning: '#ff9500',
+    success: '#4cd964',
+    textPrimary: '#11181C',
+    textSecondary: '#9BA1A6',
+    background: '#f5f5f5',
+    backgroundPaper: '#fff',
+    tint: primaryColor,
+    icon: '#687076',
+    tabIconDefault: '#687076',
+    tabIconSelected: primaryColor,
+  },
+  dark: {
+    primary: primaryColor,
+    secondary: secondaryColor,
+    black: '#000',
+    white: '#fff',
+    transparent: 'transparent',
+    error: '#ff3b30',
+    warning: '#ff9500',
+    success: '#4cd964',
+    textPrimary: '#ECEDEE',
+    textSecondary: '#9BA1A6',
+    background: '#151718',
+    backgroundPaper: '#fff',
+    tint: primaryColor,
+    icon: '#9BA1A6',
+    tabIconDefault: '#9BA1A6',
+    tabIconSelected: primaryColor,
+  },
+};
