@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unstable-nested-components */
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from '../screens/Home';
-import Chat from '../screens/Chat';
-import AudioCall from '../screens/AudioCall';
-import VideoCall from '../screens/VideoCall';
+import Home from '@/screens/Home';
+import Chat from '@/screens/Chat';
+import AudioCall from '@/screens/AudioCall';
+import VideoCall from '@/screens/VideoCall';
 import ChatHeader from '@/components/header/ChatHeader';
 import HomeHeader from '@/components/header/HomeHeader';
 
@@ -21,14 +21,6 @@ export default function RootStack() {
     <Stack.Navigator
       screenOptions={{
         headerShown: true,
-        animation: 'slide_from_right',
-        headerStyle: {
-          backgroundColor: '#f4511e',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
       }}
     >
       <Stack.Screen

@@ -22,13 +22,11 @@ export default function HomeHeader({ navigation }: any) {
       }}
     >
       {/* App Title */}
-      <ThemedText type="title" style={styles.title}>
-        SecureChat
-      </ThemedText>
+      <ThemedText type="title">SecureChat</ThemedText>
 
       {/* Settings Icon */}
       <ThemedPressable onPress={navigateToSettings} colorName="primary">
-        <IconSymbol name="EllipsisVertical" color={Colors[colorScheme].white} />
+        <IconSymbol name="EllipsisVertical" />
       </ThemedPressable>
     </ThemedView>
   );
@@ -41,10 +39,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-  },
-  title: {
-    color: '#fff', // ✅ White title (same as headerTintColor)
-    fontSize: 22,
-    fontWeight: 'bold',
   },
 });

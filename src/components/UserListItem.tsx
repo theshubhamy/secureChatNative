@@ -8,6 +8,7 @@ import { UserWithLastMsg } from '@/constants/users';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { IconSymbol } from './ui/IconSymbol';
+import { Colors } from '@/constants/Colors';
 
 type RootStackParamList = {
   Chat: { user: UserWithLastMsg };
@@ -25,7 +26,7 @@ const UserListItem = ({ user }: { user: UserWithLastMsg }) => {
   return (
     <ThemedPressable style={styles.container} onPress={() => navigateToChat()}>
       <ThemedView style={styles.iconContainer}>
-        <IconSymbol name="UserRound" />
+        <IconSymbol name="UserRound" color={Colors.light.primary} />
       </ThemedView>
       <ThemedView style={styles.listContainer}>
         <ThemedView style={styles.userView}>
@@ -45,8 +46,6 @@ export default UserListItem;
 const styles = StyleSheet.create({
   container: {
     padding: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
     flexDirection: 'row',
   },
   listContainer: {
@@ -58,8 +57,9 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ddd',
     borderRadius: 25,
+    borderWidth: 0.5,
+    borderColor: Colors.light.primary,
   },
   userView: {
     flexDirection: 'row',

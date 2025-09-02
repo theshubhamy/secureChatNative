@@ -26,7 +26,7 @@ export default function ChatHeader({ navigation, user }: ChatHeaderProps) {
     >
       {/* Back button */}
       <TouchableOpacity onPress={() => navigation.goBack()}>
-        <IconSymbol name="ArrowLeft" color={Colors[colorScheme].white} />
+        <IconSymbol name="ArrowLeft" />
       </TouchableOpacity>
 
       {/* User avatar */}
@@ -39,24 +39,27 @@ export default function ChatHeader({ navigation, user }: ChatHeaderProps) {
       </ThemedView>
 
       {/* User info */}
-      <ThemedView style={styles.userInfo}>
-        <ThemedText style={styles.userName} type="small">
+      <ThemedView
+        style={{
+          ...styles.userInfo,
+          backgroundColor: Colors[colorScheme].primary,
+        }}
+      >
+        <ThemedText type="defaultSemiBold">
           {user.name || user.phone}
         </ThemedText>
-        <ThemedText style={styles.userStatus} type="small">
-          online
-        </ThemedText>
+        <ThemedText type="xsmall">online</ThemedText>
       </ThemedView>
 
       {/* Action buttons */}
       <TouchableOpacity style={styles.actionButton}>
-        <IconSymbol name="PhoneCall" color={Colors[colorScheme].white} />
+        <IconSymbol name="PhoneCall" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.actionButton}>
-        <IconSymbol name="Video" color={Colors[colorScheme].white} />
+        <IconSymbol name="Video" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.actionButton}>
-        <IconSymbol name="EllipsisVertical" color={Colors[colorScheme].white} />
+        <IconSymbol name="EllipsisVertical" />
       </TouchableOpacity>
     </ThemedView>
   );
@@ -79,18 +82,11 @@ const styles = StyleSheet.create({
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ddd',
     borderRadius: 25,
+    borderWidth: 0.5,
+    borderColor: Colors.light.primary,
   },
-  userName: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  userStatus: {
-    color: '#d9d9d9',
-    fontSize: 12,
-  },
+
   actionButton: {
     marginHorizontal: 10,
   },
