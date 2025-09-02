@@ -32,7 +32,7 @@ export const Colors = {
     textPrimary: '#ECEDEE',
     textSecondary: '#9BA1A6',
     background: '#151718',
-    backgroundPaper: '#fff',
+    backgroundPaper: '#000',
     tint: primaryColor,
     icon: '#ffffff',
     tabIconDefault: '#9BA1A6',
