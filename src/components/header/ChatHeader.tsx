@@ -5,8 +5,15 @@ import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { ThemedView } from '../ThemedView';
 import { ThemedText } from '../ThemedText';
+// Import RootStackParamList from your navigation types file
+import type { RootStackParamList } from '@/navigations/types';
+import { ThemedButton } from '../ThemedButton';
+
 type ChatHeaderProps = {
-  navigation: { goBack: () => void };
+  navigation: {
+    goBack: () => void;
+    navigate?: (screen: keyof RootStackParamList, params?: any) => void;
+  };
   user: {
     avatar: string;
     name: string;
@@ -16,6 +23,12 @@ type ChatHeaderProps = {
 
 export default function ChatHeader({ navigation, user }: ChatHeaderProps) {
   const colorScheme = useColorScheme();
+  const navigateTo = (screen: keyof RootStackParamList) => {
+    if (navigation?.navigate === undefined) {
+      return;
+    }
+    navigation?.navigate(screen, { user });
+  };
 
   return (
     <ThemedView
@@ -30,13 +43,16 @@ export default function ChatHeader({ navigation, user }: ChatHeaderProps) {
       </TouchableOpacity>
 
       {/* User avatar */}
-      <ThemedView style={styles.iconContainer}>
+      <ThemedButton
+        style={styles.iconContainer}
+        onPress={() => navigateTo('Profile')}
+      >
         {user.avatar === '' ? (
           <Image source={{ uri: user.avatar }} />
         ) : (
           <IconSymbol name="UserRound" color={Colors[colorScheme].primary} />
         )}
-      </ThemedView>
+      </ThemedButton>
 
       {/* User info */}
       <ThemedView
@@ -52,13 +68,22 @@ export default function ChatHeader({ navigation, user }: ChatHeaderProps) {
       </ThemedView>
 
       {/* Action buttons */}
-      <TouchableOpacity style={styles.actionButton}>
+      <TouchableOpacity
+        style={styles.actionButton}
+        onPress={() => navigateTo('AudioCall')}
+      >
         <IconSymbol name="PhoneCall" />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.actionButton}>
+      <TouchableOpacity
+        style={styles.actionButton}
+        onPress={() => navigateTo('VideoCall')}
+      >
         <IconSymbol name="Video" />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.actionButton}>
+      <TouchableOpacity
+        style={styles.actionButton}
+        onPress={() => navigateTo('Settings')}
+      >
         <IconSymbol name="EllipsisVertical" />
       </TouchableOpacity>
     </ThemedView>

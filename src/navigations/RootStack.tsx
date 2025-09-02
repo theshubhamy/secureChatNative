@@ -6,13 +6,9 @@ import AudioCall from '@/screens/AudioCall';
 import VideoCall from '@/screens/VideoCall';
 import ChatHeader from '@/components/header/ChatHeader';
 import HomeHeader from '@/components/header/HomeHeader';
-
-type RootStackParamList = {
-  Home: undefined;
-  Chat: { user: any };
-  AudioCall: undefined;
-  VideoCall: undefined;
-};
+import type { RootStackParamList } from '@/navigations/types';
+import Settings from '@/screens/Settings';
+import Profile from '@/screens/Profile';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -39,8 +35,26 @@ export default function RootStack() {
           ),
         })}
       />
-      <Stack.Screen name="AudioCall" component={AudioCall} />
-      <Stack.Screen name="VideoCall" component={VideoCall} />
+      <Stack.Screen
+        name="AudioCall"
+        component={AudioCall}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="VideoCall"
+        component={VideoCall}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 }
